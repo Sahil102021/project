@@ -1,0 +1,166 @@
+import React from 'react'
+import  { AppBar, Box, Container, IconButton, Toolbar, Typography , Button, Menu ,MenuItem, Avatar, Grid2, ButtonGroup, InputBase} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import Tooltip from '@mui/material/Tooltip';
+import AdbIcon from '@mui/icons-material/Adb';
+import logo from '../img/logo4.png';
+import CallIcon from '@mui/icons-material/Call';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
+import '../App.css';
+import './Navbar.css';
+import { FiAlignCenter } from "react-icons/fi";
+import { IconName } from "react-icons/fi";
+
+
+
+
+
+
+  const btn1 = {
+    textTransform: 'capitalize',
+    fontSize: '14px',
+    color: '#fff',
+    border: 'none',
+    cursor: 'pointer',
+    position: 'relative',
+    overflow: 'hidden', // Ensures the line stays within the button boundaries
+    '&:before': {
+      content: '""',
+      display: 'block',
+      height: '1px',
+      backgroundColor: '#fff',
+      position: 'absolute',
+      top: '0%', // Adjust this value as needed
+      left: '50%', // Center the line
+      transform: 'translateX(-50%)', // Center the line
+      transition: 'width 0.5s', // Animate the width
+      width: '0', // Start with zero width
+    },
+    '&:hover:before': {
+      width: '75px', // Expand to full width on hover
+    },
+    '&:focus:before': {
+      width: '75px', // Expand to full width on hover
+    }
+  };
+  ;
+  
+
+
+const Navbar = () => {
+ 
+  return (
+    <div className='Navbar'>
+        <AppBar position='fixed' sx={{mt:'20px', backgroundColor:'transparent' , boxShadow:'none',overflow:'hidden'}} >
+           
+                <Toolbar >
+
+                <Box width='100%'  sx={{height:'37.5px',backdropFilter:'blur(7.5px)', padding:'5px' , borderRadius:{xs:'none',sm:'40px'} , textAlign:'center'  }}>
+                <Grid2 container spacing={1} sx={{display:'flex' , alignItems:'center' ,justifyContent:'center'}}>
+
+{/*////////////////////// LOGO AND SIDE NAVBAR///////////////  */}
+                  <Grid2 size={{xs:'1', sm:'2', md:'2'}} >
+                        <Box  sx={{pl:'5px'}}>
+                            <p className='t1'>NextCar</p>
+                        </Box>
+                  </Grid2>
+
+
+{/*////////////////////// CENTER NAVBAR AND LOGO ///////////////  */}
+                  <Grid2 size={{xs:'4', sm:'6', md:'6'}} flexGrow='1' >
+                    <Box
+                        sx={{
+                          display: {xs:'none',sm:'none', md:'flex'},
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                        }}>
+                        <ButtonGroup variant='none' sx={{textTransform:'capitalize' }}  aria-label="Basic button group">
+                          <Button sx={btn1}>Home</Button>
+                          <Button sx={btn1}>New Car</Button>
+                          <Button sx={btn1}>Explore</Button>
+                          <Button sx={btn1}>New Car</Button>
+                          <Button sx={btn1}>New Car</Button>
+                        </ButtonGroup>
+                      </Box>
+
+                      <Box  sx={{
+                          display:{sm:'', md:'none'},
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                        }}>
+                           {/* <Search>
+                               <SearchIconWrapper>
+                                 <SearchIcon fontSize='16px'/>
+                               </SearchIconWrapper>
+                               <StyledInputBase
+                                 placeholder="Search…"
+                                 inputProps={{ 'aria-label': 'search' }}
+                               />
+                            </Search> */}
+                      </Box>
+                     
+                    
+                  </Grid2>
+
+                    
+
+{/*////////////////////// SEARCH   ///////////////  */}
+
+                  <Grid2 size={{xs:'0', sm:'0', md:'2'}}  >
+                      {/* <Search sx={{display:{xs:'none',sm:'none', md:'flex'}}}>
+                        <SearchIconWrapper>
+                          <SearchIcon />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                          placeholder="Search…"
+                          inputProps={{ 'aria-label': 'search' }}
+                        />
+                      </Search> */}
+                  </Grid2>
+
+{/*//////////////////////  ICON   ///////////////  */}
+                  
+                  <Grid2 size={{xs:'4', sm:'4', md:'2'}} >
+                    <Box>
+                        <Box sx={{  
+                                display:{xs:'none', sm:'none',md:'flex'},
+                                flexDirection: 'row',
+                                alignItems: 'center', 
+                                gap:'10px',
+                                pr:{xs:'0',md:'5px'}
+                                }}>
+
+                        <Box sx={{width:'30px' ,height:'30px' , border:'1px solid #e0e1dd' ,borderRadius:'50%',display:'flex',justifyContent:'center',alignItems:'center', transition:'0.3s ','&:hover':{ backgroundColor:'#e0e1dd' , color:'#1b263b'}}}>
+                            <CallIcon sx={{fontSize :'16px'}} />
+                        </Box>
+                        <Box sx={{width:'30px' ,height:'30px' , border:'1px solid #e0e1dd' ,borderRadius:'50%',display:'flex',justifyContent:'center',alignItems:'center', transition:'0.3s ','&:hover':{ backgroundColor:'#e0e1dd' , color:'#1b263b'}}}>
+                            <AddLocationIcon sx={{fontSize :'16px'}}/>
+                        </Box>
+                        </Box>
+                        </Box>
+
+                  
+                        <Box sx={{display:{sm:'flex',md:'none'}}} >
+                          <IconButton
+                             size="small"
+                             edge="start"
+                             color="inherit"
+                             aria-label="open drawer"
+                             >
+                           
+                            <FiAlignCenter />
+                           </IconButton>
+                       </Box>
+                  </Grid2>
+                </Grid2>
+                </Box>
+                </Toolbar>
+           
+        </AppBar>
+    </div>
+  )
+}
+
+export default Navbar
